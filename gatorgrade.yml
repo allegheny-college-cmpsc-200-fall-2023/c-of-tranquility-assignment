@@ -1,0 +1,187 @@
+- hello_luna/main.c:
+  - description: hello_luna/main.c contains no TODOs
+    category: TODOs
+    check: MatchFileFragment
+    options:
+      fragment: 'TODO'
+      count: 0
+      exact: true
+- adder/main.c:
+  - description: adder/main.c contains no TODOs
+    category: TODOs
+    check: MatchFileFragment
+    options:
+      fragment: 'TODO'
+      count: 0
+      exact: true
+- docs/dis.md:
+  - description: docs/dis.md contains no TODOs
+    category: TODOs
+    check: MatchFileFragment
+    options:
+      fragment: 'TODO'
+      count: 0
+      exact: true
+- classifier/main.c:
+  - description: classifier/main.c contains no TODOs
+    category: TODOs
+    check: MatchFileFragment
+    options:
+      fragment: 'TODO'
+      count: 0
+      exact: true
+- hello_luna/main.c:
+  - description: hello_luna/main.c contains a `printf` statement which prints `Hello, Luna!`
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'printf\("Hello,(\s)?Luna!"\);'
+      count: 1
+      exact: true
+- hello_luna/main.c:
+  - description: hello_luna/main.c contains a return statement of the correct type and value
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'return 0;'
+      count: 1
+      exact: true
+- hello_luna/main.c:
+  - description: hello_luna/main.c main function has correct type
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'int(\s)+main'
+      count: 1
+      exact: true
+- hello_luna/main.c:
+  - description: hello_luna/main.c main parameter is void type
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: '\(void\)'
+      count: 1
+      exact: true
+- hello_luna/main.c:
+  - description: hello_luna/main.c main function is enclosed in braces
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'int(\s)+main(\s)?\(void\)(\s)?\{(.*)\}'
+      count: 1
+      exact: true
+- adder/main.c:
+  - description: adder/main.c initializes a sum variable as an integer and appropriate starting value
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'int(\s)+sum(\s)?=(\s)?0;'
+      count: 1
+      exact: true
+- adder/main.c:
+  - description: adder/main.c includes a correctly-initialized array called numbers containing 10 values
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'int\snumbers\[10\](\s)?=(\s)?{[0-9\s,]+};'
+      count: 1
+      exact: true
+- adder/main.c:
+  - description: adder/main.c uses sizeof to calculate actual array size
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'sizeof\([a-z_]+\)'
+      count: 2
+      exact: true
+- adder/main.c:
+  - description: adder/main.c uses a for loop to iterate through numbers array
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'for\(int(\s)+[a-z_]+(\s)+=(\s)+0;(\s)+[a-z_](\s)+<(\s)+[a-z_0-9]+;(\s)+[i+]+\)(\s){0,10}\{(.*)\}'
+      count: 1
+      exact: true
+- adder/main.c:
+  - description: adder/main.c accesses the numbers array by index
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'numbers\[[a-z_]\]'
+      count: 1
+      exact: false
+- adder/main.c:
+  - description: adder/main.c uses the add function to add numbers
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'sum(\s)+=(\s)+add\([a-z_\[\]]+,(\s)+[a-z_\[\]]+\);'
+      count: 1
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c main function creates a rock struct array to house data
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'struct(\s)+rock(\s)+[a-z_]+\[[0-9]+\];'
+      count: 1
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c uses 2 for loops to iterate through struct arrays
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'for(\s)?\(int(\s)+[a-z_]+(\s)?=(\s)?0;(\s)?[a-z_]+(\s)?<(\s)?[a-z_0-9]+;(\s)+[i+]+\)(\s)?'
+      count: 2
+      exact: true
+- classifier/main.c:
+  - description: classifier/main.c main function creates a rock struct to use to store individual samples in iteration
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'struct(\s)+rock(\s)+[a-z_]+;'
+      count: 1
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c creates a function called average with the correct signature
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'float(\s)+average(\s)?\((.*)\)'
+      count: 1
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c accesses data in the arrays containing data in main using their indexes
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'rocks\[[a-z_]\]|weights\[[a-z_]\]|types\[[a-z_]\]|ids\[[a-z_]\]'
+      count: 4
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c uses strcpy to move strings into char properties of struct
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'strcpy\('
+      count: 2
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c uses conditional logic to compare first_letter and search_key
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'if(\s)?\([first_letter|\*search_key](\s)?'
+      count: 1
+      exact: false
+- classifier/main.c:
+  - description: classifier/main.c stores first letter of struct at index to first_letter
+    category: Basic C
+    check: MatchFileRegex
+    options:
+      regex: 'char(\s)first_letter(\s)?=(\s)?[a-z0-9_]+\[(.*)\]\.type\[0\];'
+      count: 1
+      exact: false
+
+
+
