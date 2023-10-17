@@ -40,7 +40,7 @@ While we didn't want to put you to work right away, it seems that the Space Agen
 * adds 'em
 * outputs the sum
 
-It's unclear as to whether the code works the same up here, so you'll also need to work through a `.dis` of the file to be sure that it's doing what you say it is. So, you'll need to submit an annotated report of the `.dis` file in `docs`.
+It's unclear as to whether the code works the same up here, so you'll also need to work through a `.dis` of the file to be sure that it's doing what you say it is. So, you'll need to submit an annotated report of the `.dis` file in `docs` using `;` as our leading character to denote a comment, rather than our traditional `@`.
 
 #### `classifier`
 
