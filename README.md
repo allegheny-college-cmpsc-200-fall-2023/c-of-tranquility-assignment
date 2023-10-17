@@ -28,7 +28,7 @@ Before embarking on our larger mission this week, we have a few areas to cover.
 
 Complete this work in [hello_luna/main.c](hello_luna/main.c).
 
-We would say world, but _we're on the moon! So, we need to change our first moonspeak program to reflect our change of locale. Here, we'll learn a bit about the differences between our Earthbound Python and the C of Tranquility.
+We would say world, but _we're on the moon_! So, we need to change our first moonspeak program to reflect our change of locale. Here, we'll learn a bit about the differences between our Earthbound Python and the C of Tranquility.
 
 #### `adder`
 
