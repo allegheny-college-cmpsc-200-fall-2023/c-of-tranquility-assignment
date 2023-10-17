@@ -17,7 +17,7 @@ previously.
 ```assembly
 10000354 <add>:
 10000354:	1840      	adds	r0, r0, r1                  @ add int a and int b
-10000356:	4770      	bx	lr                              @ branch and eXecute (return) to main
+10000356:	4770      	bx	lr                            @ branch and eXecute (return) to main
 
 10000358 <main>:
 10000358:	b570      	push	{r4, r5, r6, lr}            @ TODO: The rest
