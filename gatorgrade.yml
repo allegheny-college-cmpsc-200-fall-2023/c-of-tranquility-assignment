@@ -119,7 +119,7 @@
       count: 0
       exact: true
 - disassembly/main.c:
-  - description: disassembly/main.c initializes an arbitrarily-named variable to the value 10
+  - description: disassembly/main.c initializes an arbitrarily-named variable to 10
     category: Basic C
     check: MatchFileRegex
     options:
@@ -131,11 +131,12 @@
     category: Basic C
     check: MatchFileRegex
     options:
-      regex: 'while(\s)?\(.*\)(\s)?\{.*\}'
+      regex: 'while(\s)?\((.*)\)(\s)?\{(.*)\}'
       count: 1
       exact: true
 - disassembly/main.c:
   - description: disassembly/main.c prints the appropriate amount of times
+    category: Basic C
     check: MatchFileFragment
     options:
       fragment: 'printf('
@@ -143,6 +144,7 @@
       exact: false
 - disassembly/main.c:
   - description: disassembly/main.c includes the function identified in the disassembled version
+    category: Basic C    
     check: MatchFileRegex
     options:
       regex: 'int(\s)ndown\(int(\s)[a-z_0-9]+,(\s)?int(\s)[a-z_0-9]+\)(\s)?\{'
@@ -150,6 +152,7 @@
       exact: true
 - disassembly/main.c:
   - description: disassembly/main.c calls the function identified in the disassembled version
+    category: Basic C
     check: MatchFileRegex
     options:
       regex: 'ndown\([a-z0-9_]+(\s)?,(\s)?[a-z0-9_]+\);'
@@ -157,6 +160,7 @@
       exact: true
 - disassembly/main.c:
   - description: disassembly/main.c additional function returns a value
+    category: Basic C
     check: MatchFileRegex
     options:
       regex: 'return(\s)[a-z0-9_]+;'
@@ -164,6 +168,7 @@
       exact: true
 - disassembly/main.c:
   - description: disassembly/main.c main function returns 0
+    category: Basic C
     check: MatchFileRegex
     options:
       regex: 'return 0;'
