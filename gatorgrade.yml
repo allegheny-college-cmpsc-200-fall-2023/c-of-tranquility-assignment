@@ -14,16 +14,8 @@
       fragment: 'TODO'
       count: 0
       exact: true
-- docs/dis.md:
-  - description: docs/dis.md contains no TODOs
-    category: TODOs
-    check: MatchFileFragment
-    options:
-      fragment: 'TODO'
-      count: 0
-      exact: true
-- classifier/main.c:
-  - description: classifier/main.c contains no TODOs
+- docs/report.md:
+  - description: docs/report.md answers all questions
     category: TODOs
     check: MatchFileFragment
     options:
@@ -31,7 +23,7 @@
       count: 0
       exact: true
 - hello_luna/main.c:
-  - description: hello_luna/main.c contains a `printf` statement which prints `Hello, Luna!`
+  - description: hello_luna/main.c contains a printf statement which prints Hello, Luna!
     category: Basic C
     check: MatchFileRegex
     options:
@@ -75,8 +67,8 @@
     category: Basic C
     check: MatchFileRegex
     options:
-      regex: 'int(\s)+sum(\s)?=(\s)?0;'
-      count: 1
+      regex: 'int(\s)+sum(\s)?=(\s)?2;'
+      count: 0
       exact: true
 - adder/main.c:
   - description: adder/main.c includes a correctly-initialized array called numbers containing 10 values
@@ -118,70 +110,62 @@
       regex: 'sum(\s)+=(\s)+add\([a-z_\[\]]+,(\s)+[a-z_\[\]]+\);'
       count: 1
       exact: false
-- classifier/main.c:
-  - description: classifier/main.c main function creates a rock struct array to house data
+- disassembly/main.c:
+  - description: disassembly/main.c has no TODOs
     category: Basic C
-    check: MatchFileRegex
+    check: MatchFileFragment
     options:
-      regex: 'struct(\s)+rock(\s)+[a-z_]+\[[0-9]+\];'
-      count: 1
-      exact: false
-- classifier/main.c:
-  - description: classifier/main.c uses 2 for loops to iterate through struct arrays
-    category: Basic C
-    check: MatchFileRegex
-    options:
-      regex: 'for(\s)?\(int(\s)+[a-z_]+(\s)?=(\s)?0;(\s)?[a-z_]+(\s)?<(\s)?[a-z_0-9]+;(\s)+[i+]+\)(\s)?'
-      count: 2
+      fragment: 'TODO'
+      count: 0
       exact: true
-- classifier/main.c:
-  - description: classifier/main.c main function creates a rock struct to use to store individual samples in iteration
+- disassembly/main.c:
+  - description: disassembly/main.c initializes an arbitrarily-named variable to the value 10
     category: Basic C
     check: MatchFileRegex
     options:
-      regex: 'struct(\s)+rock(\s)+[a-z_]+;'
+      regex: 'int(\s)[a-z_0-9]+(\s)?=(\s)?10;'
       count: 1
-      exact: false
-- classifier/main.c:
-  - description: classifier/main.c creates a function called average with the correct signature
+      exact: true
+- disassembly/main.c:
+  - description: disassembly/main.c implements the correct iterative structure
     category: Basic C
     check: MatchFileRegex
     options:
-      regex: 'float(\s)+average(\s)?\((.*)\)'
+      regex: 'while(\s)?\(.*\)(\s)?\{.*\}'
       count: 1
-      exact: false
-- classifier/main.c:
-  - description: classifier/main.c accesses data in the arrays containing data in main using their indexes
-    category: Basic C
-    check: MatchFileRegex
+      exact: true
+- disassembly/main.c:
+  - description: disassembly/main.c prints the appropriate amount of times
+    check: MatchFileFragment
     options:
-      regex: 'rocks\[[a-z_]\]|weights\[[a-z_]\]|types\[[a-z_]\]|ids\[[a-z_]\]'
-      count: 4
-      exact: false
-- classifier/main.c:
-  - description: classifier/main.c uses strcpy to move strings into char properties of struct
-    category: Basic C
-    check: MatchFileRegex
-    options:
-      regex: 'strcpy\('
+      fragment: 'printf('
       count: 2
       exact: false
-- classifier/main.c:
-  - description: classifier/main.c uses conditional logic to compare first_letter and search_key
-    category: Basic C
+- disassembly/main.c:
+  - description: disassembly/main.c includes the function identified in the disassembled version
     check: MatchFileRegex
     options:
-      regex: 'if(\s)?\([first_letter|\*search_key](\s)?'
+      regex: 'int(\s)ndown\(int(\s)[a-z_0-9]+,(\s)?int(\s)[a-z_0-9]+\)(\s)?\{'
       count: 1
-      exact: false
-- classifier/main.c:
-  - description: classifier/main.c stores first letter of struct at index to first_letter
-    category: Basic C
+      exact: true
+- disassembly/main.c:
+  - description: disassembly/main.c calls the function identified in the disassembled version
     check: MatchFileRegex
     options:
-      regex: 'char(\s)first_letter(\s)?=(\s)?[a-z0-9_]+\[(.*)\]\.type\[0\];'
+      regex: 'ndown\([a-z0-9_]+(\s)?,(\s)?[a-z0-9_]+\);'
       count: 1
-      exact: false
-
-
-
+      exact: true
+- disassembly/main.c:
+  - description: disassembly/main.c additional function returns a value
+    check: MatchFileRegex
+    options:
+      regex: 'return(\s)[a-z0-9_]+;'
+      count: 1
+      exact: true
+- disassembly/main.c:
+  - description: disassembly/main.c main function returns 0
+    check: MatchFileRegex
+    options:
+      regex: 'return 0;'
+      count: 1
+      exact: true
